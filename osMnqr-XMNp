@@ -1,3 +1,3 @@
-function check_item {
+#function check_item {
   # exit 1
-}
+#}
