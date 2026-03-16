@@ -1,3 +1,13 @@
+function check_user-alias-matrix {
+  if [ ! -s ~"${user}"/.bash_aliases ]; then
+    lib::ierr "alias for matrix was NOT found in bash_aliases for MySeneca user $user"
+  else
+    if ! grep  -q  "alias matrix=[\"']ssh  *${user}@matrix.*" ~"${user}"/.bash_aliases ; then
+      lib::ierr "alias for matrix was NOT found in bash_aliases for MySeneca user $user"
+    fi
+  fi
+}
+
 function check_item {
   # exit 1
 }
