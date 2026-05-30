@@ -6,5 +6,4 @@ function _local_user_home {
 }
 
 function check_local {
-  _local_user_home
 }
