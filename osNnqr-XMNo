@@ -1,1 +1,6 @@
 #
+function check_local {
+  if [ ! -d /home/"${user}" ] ; then
+    lib::ierr "ERROR: user not created"
+  fi
+}
