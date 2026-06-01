@@ -1,11 +1,23 @@
 #
-function _local_user_home {
-  if [ ! -d /home/"${user}" ] ; then
-    lib::ierr "ERROR: user ${user} was not created"
+function _local_user_bin {
+  if [ ! -d /home/ubuntu/bin/ ] ; then
+    lib::ierr "ERROR: requested directory was NOT FOUND"
   fi
 }
 
+function _local_user_bin_scripts {
+  for f in /home/ubuntu/bin/*; do
+    if file $f  | grep -q "Bourne-Again shell script" ; then
+     return
+    fi
+  done
+  lib::ierr "ERROR: requested directory DID NOT have requested content"
+}
+
 function check_local {
+
+  _local_user_bin
+  _local_user_bin_scripts
 
 # --
   :
