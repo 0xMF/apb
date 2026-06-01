@@ -1,7 +1,7 @@
 #
 function _local_user_home {
   if [ ! -d /home/"${user}" ] ; then
-    lib::ierr "ERROR: user "${user}" was not created"
+    lib::ierr "ERROR: user ${user} was not created"
   fi
 }
 
