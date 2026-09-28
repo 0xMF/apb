@@ -8,3 +8,13 @@ function check_console-setup {
   fi
 }
 
+function check_user_login_matrix {
+   check_user_history
+   if ! grep -q "ssh .*$user@matrix.*" /home/"${user}"/.bash_history; then
+    if ! grep -q "^matrix$" /home/"${user}"/.bash_history; then
+      lib::ierr "MySeneca user $user has not logged in to matrix from this VM!!!"
+    fi
+  fi
+}
+
+
