@@ -1,0 +1,10 @@
+function check_console-setup {
+  if ! grep  -q  '^FONTFACE="TerminusBold"' /etc/default/console-setup ; then
+    lib::ierr "console font was NOT changed to TerminusBold 14x28!!!"
+  fi
+
+  if ! grep  -q  '^FONTSIZE="10x20"' /etc/default/console-setup ; then
+    lib::ierr "console font was NOT changed to TerminusBold 10x20!!!"
+  fi
+}
+
